@@ -1,1 +1,58 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Formatting and Routing Profile",
+    "description": "A schema defining formatting rules for various channels and routing logic for Grasshopper.",
+    "type": "object",
+    "properties": {
+        "sms_formatting_rules": {
+            "type": "array",
+            "description": "Rules for formatting SMS messages (e.g., use of emojis, capital letters, line breaks).",
+            "items": {
+                "type": "string"
+            }
+        },
+        "email_formatting_rules": {
+            "type": "array",
+            "description": "Rules for formatting emails (e.g., bolding, bullet points, font constraints).",
+            "items": {
+                "type": "string"
+            }
+        },
+        "webchat_formatting_rules": {
+            "type": "array",
+            "description": "Rules for formatting webchat messages (e.g., markdown support, link formatting).",
+            "items": {
+                "type": "string"
+            }
+        },
+        "phone_script_formatting_rules": {
+            "type": "array",
+            "description": "Rules for formatting phone scripts (e.g., phonetic spelling for names, pause markers).",
+            "items": {
+                "type": "string"
+            }
+        },
+        "grasshopper_routing_rules": {
+            "type": "array",
+            "description": "Specific rules for call routing within the Grasshopper phone system.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "grasshopper_sms_rules": {
+            "type": "array",
+            "description": "Specific handling rules for SMS messages received or sent via Grasshopper.",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "sms_formatting_rules",
+        "email_formatting_rules",
+        "webchat_formatting_rules",
+        "phone_script_formatting_rules",
+        "grasshopper_routing_rules",
+        "grasshopper_sms_rules"
+    ]
+}
