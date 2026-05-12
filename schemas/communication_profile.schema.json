@@ -1,1 +1,56 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Communication Profile",
+    "description": "A schema defining channel-specific communication constraints, safety rules, and escalation protocols.",
+    "type": "object",
+    "properties": {
+        "sms_max_length": {
+            "type": "number",
+            "description": "The maximum character limit for SMS messages."
+        },
+        "sms_style_notes": {
+            "type": "string",
+            "description": "Specific stylistic guidelines for SMS communication (e.g., use of abbreviations)."
+        },
+        "email_style_notes": {
+            "type": "string",
+            "description": "Guidelines for email structure, tone, and formatting."
+        },
+        "webchat_style_notes": {
+            "type": "string",
+            "description": "Guidelines for real-time web chat interactions."
+        },
+        "phone_script_style_notes": {
+            "type": "string",
+            "description": "Instructions regarding the pace, tone, and delivery of phone scripts."
+        },
+        "safety_rules": {
+            "type": "array",
+            "description": "A list of rules to ensure the physical or psychological safety of the user/customer.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "compliance_notes": {
+            "type": "string",
+            "description": "Legal or regulatory requirements that must be followed in communications."
+        },
+        "escalation_triggers": {
+            "type": "array",
+            "description": "Specific keywords or situations that require the interaction to be handed off to a supervisor.",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "sms_max_length",
+        "sms_style_notes",
+        "email_style_notes",
+        "webchat_style_notes",
+        "phone_script_style_notes",
+        "safety_rules",
+        "compliance_notes",
+        "escalation_triggers"
+    ]
+}
