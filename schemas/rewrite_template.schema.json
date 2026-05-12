@@ -1,1 +1,39 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Rewrite Template",
+    "description": "A schema for defining rules and tone parameters for rewriting or transforming existing content.",
+    "type": "object",
+    "properties": {
+        "rewrite_tone": {
+            "type": "string",
+            "description": "The target tone or emotional resonance for the rewritten content."
+        },
+        "rewrite_clarity_rules": {
+            "type": "array",
+            "description": "Rules focused on making the content easier to understand (e.g., 'remove jargon', 'use active voice').",
+            "items": {
+                "type": "string"
+            }
+        },
+        "rewrite_structure_rules": {
+            "type": "array",
+            "description": "Rules concerning the organization and flow of the text (e.g., 'put key info first', 'limit paragraphs to 3 sentences').",
+            "items": {
+                "type": "string"
+            }
+        },
+        "rewrite_safety_rules": {
+            "type": "array",
+            "description": "Rules to ensure rewritten content avoids harmful, biased, or restricted language.",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "rewrite_tone",
+        "rewrite_clarity_rules",
+        "rewrite_structure_rules",
+        "rewrite_safety_rules"
+    ]
+}
