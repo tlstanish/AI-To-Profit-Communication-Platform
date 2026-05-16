@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Voice Profile Schema",
+  "type": "object",
+  "properties": {
+    "tone_keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Keywords that describe the emotional tone of the business (e.g., friendly, warm, confident)."
+    },
+    "style_keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Keywords that describe the writing style (e.g., simple, clear, conversational)."
+    },
+    "formality_level": {
+      "type": "string",
+      "enum": ["casual", "neutral", "formal"],
+      "description": "Defines how formal the business communication should sound."
+    },
+    "empathy_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Defines how emotionally supportive the tone should be."
+    },
+    "brand_phrases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Signature phrases the business uses regularly."
+    },
+    "do_not_say_list": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Phrases the business never wants used in communication."
+    },
+    "greeting_style": {
+      "type": "string",
+      "description": "The default greeting format (e.g., 'Hi {name},')."
+    },
+    "signoff_style": {
+      "type": "string",
+      "description": "The default signoff format (e.g., 'Thanks,')."
+    }
+  },
+  "required": [
+    "tone_keywords",
+    "style_keywords",
+    "formality_level",
+    "empathy_level",
+    "brand_phrases",
+    "do_not_say_list",
+    "greeting_style",
+    "signoff_style"
+  ]
+}
