@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContentModerationAndRewriteGuidelines",
+  "type": "object",
+  "properties": {
+    "forbidden_phrases": {
+      "type": "array",
+      "description": "A list of specific words, clichés, or brand-damaging phrases that must never be used in communication.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "description": "Banned compliance, marketing, or legal statements that cannot be made (e.g., unverified guarantees or medical/financial claims).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_triggers": {
+      "type": "array",
+      "description": "Keywords, topics, or concepts that indicate a high-risk scenario requiring immediate caution or compliance review.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rewrite_instructions": {
+      "type": "string",
+      "description": "Core operational instructions for modifying the input text to ensure it adheres to safety, tone, and compliance standards."
+    }
+  },
+  "required": [
+    "forbidden_phrases",
+    "forbidden_claims",
+    "risk_triggers",
+    "rewrite_instructions"
+  ]
+}
