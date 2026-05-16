@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContentRewriteGuidelines",
+  "type": "object",
+  "properties": {
+    "rewrite_tone": {
+      "type": "string",
+      "description": "The target persona, voice, or emotional tone to adopt when rewriting content."
+    },
+    "rewrite_clarity_rules": {
+      "type": "array",
+      "description": "Rules aimed at improving readability, reducing jargon, and ensuring the text is easy to understand.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rewrite_structure_rules": {
+      "type": "array",
+      "description": "Guidelines structural formatting, such as paragraph length, bulleting preferences, or structural flow during modification.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rewrite_safety_rules": {
+      "type": "array",
+      "description": "Guardrails and safety restrictions to prevent the inclusion of offensive, biased, or unauthorized information during rewrites.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "rewrite_tone",
+    "rewrite_clarity_rules",
+    "rewrite_structure_rules",
+    "rewrite_safety_rules"
+  ]
+}
