@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aiva.system/schemas/context.schema.json",
+  "title": "Universal Context Schema",
+  "description": "Defines the full context object passed into all Aiva Master Agents and Sub-Agents.",
+  "type": "object",
+  "properties": {
+    "business_id": {
+      "type": "string",
+      "description": "Unique ID for the SMB business."
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "The specific agent or sub-agent handling the request."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp for when the context was created."
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["sms", "email", "webchat", "phone", "internal", "system"],
+      "description": "The communication channel the message came from."
+    },
+    "original_message": {
+      "type": "string",
+      "description": "The raw inbound message before rewriting or processing."
+    },
+    "voice_profile": {
+      "type": "object",
+      "description": "The business's VoiceDNA profile.",
+      "properties": {
+        "tone_keywords": { "type": "array", "items": { "type": "string" } },
+        "style_keywords": { "type": "array", "items": { "type": "string" } },
+        "formality_level": { "type": "string" },
+        "empathy_level": { "type": "string" },
+        "brand_phrases": { "type": "array", "items": { "type": "string" } },
+        "do_not_say_list": { "type": "array", "items": { "type": "string" } },
+        "greeting_style": { "type": "string" },
+        "signoff_style": { "type": "string" }
+      },
+      "required": [
+        "tone_keywords",
+        "style_keywords",
+        "formality_level",
+        "empathy_level",
+        "brand_phrases",
+        "do_not_say_list",
+        "greeting_style",
+        "signoff_style"
+      ]
+    },
+    "communication_profile": {
+      "type": "object",
+      "description": "Rules for how the business communicates across channels.",
+      "properties": {
+        "sms_rules": { "type": "object" },
+        "email_rules": { "type": "object" },
+        "webchat_rules": { "type": "object" },
+        "phone_rules": { "type": "object" },
+        "safety_rules": { "type": "object" },
+        "escalation_triggers": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": [
+        "sms_rules",
+        "email_rules",
+        "webchat_rules",
+        "phone_rules",
+        "safety_rules",
+        "escalation_triggers"
+      ]
+    },
+    "channel_rules": {
+      "type": "object",
+      "description": "Formatting rules for each channel.",
+      "properties": {
+        "sms_formatting": { "type": "object" },
+        "email_formatting": { "type": "object" },
+        "webchat_formatting": { "type": "object" },
+        "phone_script_formatting": { "type": "object" }
+      },
+      "required": [
+        "sms_formatting",
+        "email_formatting",
+        "webchat_formatting",
+        "phone_script_formatting"
+      ]
+    },
+    "rewrite_preferences": {
+      "type": "object",
+      "description": "Rules for rewriting messages.",
+      "properties": {
+        "clarity_rules": { "type": "array", "items": { "type": "string" } },
+        "structure_rules": { "type": "array", "items": { "type": "string" } },
+        "tone_rules": { "type": "array", "items": { "type": "string" } },
+        "safety_rules": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": [
+        "clarity_rules",
+        "structure_rules",
+        "tone_rules",
+        "safety_rules"
+      ]
+    },
+    "sub_agent_overrides": {
+      "type": "object",
+      "description": "Overrides applied by the specific sub-agent.",
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for routing and logging.",
+      "properties": {
+        "lead_id": { "type": "string" },
+        "customer_id": { "type": "string" },
+        "conversation_id": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    }
+  },
+  "required": [
+    "business_id",
+    "agent_id",
+    "timestamp",
+    "channel",
+    "original_message",
+    "voice_profile",
+    "communication_profile",
+    "channel_rules",
+    "rewrite_preferences",
+    "sub_agent_overrides"
+  ],
+  "additionalProperties": false
+}
