@@ -20,8 +20,6 @@ It performs communication intelligence only.
 - Produce clean, safe, channel‑formatted output.
 - Maintain consistent communication across all Sub‑Agents and channels.
 
----
-
 ## Input Contract
 
 The Master Agent receives a full context object defined in `context.schema.json`.
@@ -46,8 +44,6 @@ The Master Agent receives a full context object defined in `context.schema.json`
 - `conversation_id`
 - `source`
 
----
-
 ## Output Contract
 
 The Master Agent returns a structured object:
@@ -57,12 +53,9 @@ The Master Agent returns a structured object:
 "metadata": { "channel": "", "agent": "", "business_id": "" }
 }
 
-
 - `rewritten_message` is the final, safe, formatted message.
 - `safety_flags` lists any detected risks or issues.
 - `metadata` is passed through for logging and routing.
-
----
 
 ## Processing Pipeline
 
